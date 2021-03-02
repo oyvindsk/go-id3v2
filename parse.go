@@ -39,7 +39,10 @@ func (tag *Tag) parse(rd io.Reader, opts Options) error {
 		return fmt.Errorf("error by parsing tag header: %v", err)
 	}
 	if header.Version < 3 {
-		return ErrUnsupportedVersion
+		// Instead of giving up we remove frames and start over
+		tag.DeleteAllFrames()
+		tag.init(rd, 0, 4)
+		return nil
 	}
 
 	tag.init(rd, tagHeaderSize+header.FramesSize, header.Version)

@@ -1,3 +1,9 @@
+
+# Fork
+Forked from github.com/bogem/id3v2 @ de2d74e8049eb6ffac74fa4bce445f29e20f63f9
+
+Reason: Make it more robust. The origianl groaks on some of the podcasts i was downloading
+  
 # [id3v2](https://pkg.go.dev/github.com/bogem/id3v2)
 
 Supported ID3 versions: 2.3, 2.4

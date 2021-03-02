@@ -35,7 +35,7 @@ type xencodingWrapper struct {
 func newXEncodingWrapper(e xencoding.Encoding) xencodingWrapper {
 	return xencodingWrapper{
 		decoder: e.NewDecoder(),
-		encoder: e.NewEncoder(),
+		encoder: xencoding.ReplaceUnsupported(e.NewEncoder()),
 	}
 }
 
